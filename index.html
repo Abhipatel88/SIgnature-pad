@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>signature pad</h1>
+    <div id="signature">
+        <!-- <canvas id="signature-pad" class="signature-pad" width="280" height="100"></canvas> -->
+        
+    </div>
+    <div class="s">
+
+        <button id="preview">Preview</button>
+    <img src="" id="signaturepreview" alt="">
+<a href="" id="downlord" download>downlord</a>
+</div>
+
+
+
+    <script src="jquery.js"></script>
+    <script src="jSignature.min.js"></script>
+    <script src="modernizr.js"></script>
+    <script>
+        var signature=$('#signature').jSignature({'UndoButton':true});
+
+        $('#preview').click(function(){
+            var data=signature.jSignature('getData' ,'image');
+            $('#signaturepreview').attr('src',"data:" +data);
+
+            
+        });
+        $('#downlord').click(function(){
+                var image = $('#signaturepreview')[0];
+                this.href= image.src;
+        });
+    </script>
+</body>
+</html>
